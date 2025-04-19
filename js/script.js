@@ -130,6 +130,7 @@ monogatari.assets ('scenes', {
 	'disturbance': 'disturbance.png',
 	'block_gamer': 'block_gamer.png',
 	'mom_check_phone': 'mom_check_phone.png',
+	'mom_check_phone_2': 'mom_check_phone_2.png',
 	'phone_call_incoming': 'phone_call_incoming.png',
 	'phone_call_incoming_1': 'phone_call_incoming_1.png',
 	'mom_brought_food': 'mom_brought_food.png',
@@ -142,7 +143,18 @@ monogatari.assets ('scenes', {
 	'fishing_reaction': 'fishing_reaction.png',
 	'gosuslugi_site': 'gosuslugi_site.png',
 	'gosuslugi_enter': 'gosuslugi_enter.png',
-	'misha_preparing_to_eat': 'misha_preparing_to_eat.png'
+	'misha_preparing_to_eat': 'misha_preparing_to_eat.png',
+	'mark_spam': 'mark_spam.png',
+	'gosuslugi_explanation': 'gosuslugi_explanation.png',
+	'evening_home': 'evening_home.png',
+	'mom_phone_on_table': 'mom_phone_on_table.png',
+	'misha_answer_mom_phone': 'misha_answer_mom_phone.png',
+	'misha_allo': 'misha_allo.png',
+	'sber_misha_reaction': 'sber_misha_reaction.png',
+	'sms_code_received': 'sms_code_received.png',
+	'code_dictation': 'code_dictation.png',
+	'mom_fail_reaction': 'mom_fail_reaction.png'
+
 
 
 
@@ -174,13 +186,17 @@ monogatari.characters({
 		name: 'proGamer2025',
 		color: '#ffd966'
 	},
-	techSupport: {
+	bankTechSupport: {
 		name: 'Техподдержка Microsoft',
 		color: '#23c0fa'
 	},
 	mom: {
 		name: 'Мама',
 		color: '#fe805d'
+	},
+	bankTechSupport: {
+		name: 'Служба безопасности  банка',
+		color: '#7bb960'
 	}
 
 });
@@ -290,7 +306,7 @@ monogatari.script({
 	'GiveToTeacher': [
 		'show scene found_flash_drive',
 		'misha: Лучше покажу учителю. Кто знает, что там внутри...',
-		'Миша положил флешку в картман и продолжил свой путь к школе.',
+		'Миша положил флешку в карман и продолжил свой путь к школе.',
 		'show scene arriving_to_school',
 		'misha: А вот и школа! Зашли и вышли, приключение на 15 минут.',
 		'show scene came_to_teacher',
@@ -298,9 +314,9 @@ monogatari.script({
 		'show scene return_book',
 		'levi: Привет, Миша. Возврат учебника?',
 		'show scene showing_flash',
-		'misha: Да, и вот ещё... я нашёл флешку в парке. Решил не открывать, мало ли что.',
+		'misha: Да, и вот ещё... я нашёл флешку в парке. Решил не проверять, что на ней, это показалось небезопасным.',
 		'show scene teacher_explanation',
-		'levi: Молодец, что не стал её открывать. Это очень опасно! На таких флешках часто бывают вирусышифровальщики, которые блокируют все данные на компьютере и требуют выкуп. Я передам её специалистам',
+		'levi: Молодец, что не стал вставлять ее в компьютер. Это очень опасно! На таких флешках часто бывают вирусышифровальщики, которые блокируют все данные на компьютере и требуют выкуп. Я передам её специалистам',
 		'show scene teacher_explanation_2',
 		'levi: Запомни золотое правило: НИКОГДА не подключай к своим устройствам непроверенные носители данных. Даже если они выглядят безобидно',
 		'show scene task_1_completed',
@@ -408,7 +424,7 @@ monogatari.script({
 		'Он блокирует профиль и сообщает о нем как о мошенническом.',
 		'show scene prize_scam_explanation',
 		'misha: Такие фейковые аккаунты создают, чтобы выманить личные фото или данные.',
-		'misha: Потом их используют для шантажа или создания deepfake – это когда твое лицо вставляют в видеоснеприятным содержанием.',
+		'misha: Потом их используют для шантажа или создания deepfake – это когда твое лицо вставляют в видео                 с неприятным содержанием.',
 		'show scene rgb(0, 0, 0) with fadeIn duration 10s',
 		'Очередной урок усвоен, что же будет дальше?',
 		'jump RemoteAccess'
@@ -491,12 +507,12 @@ monogatari.script({
 		'sasha: До встречи в школе!',
 		'misha: Да, пока!',
 		'play sound door',
-		'jump TechSupportCall' 
+		'jump bankTechSupportCall' 
 	],
 
 	// === СЦЕНА 5: ЗВОНОК ИЗ «ТЕХПОДДЕРЖКИ» ===
 
-	'TechSupportCall': [
+	'bankTechSupportCall': [
 		'show scene rgb(0, 0, 0)',
 		'centered Миша вернулся домой и был в недоумении. Никогда  в течение одного дня у него не было столько странных ситуаций.',
 		'mom: Миша, ужин готов!', 
@@ -508,36 +524,36 @@ monogatari.script({
 		'Однако, его прервал звонок от незнакомого номера.',
 		'show scene phone_call_incoming_1 with fadeIn',
 		'Миша недовольно взял трубку.',
-		'techSupport: Добрый день. Это служба техподдержки Microsoft. Мы обнаружили, что ваш компьютер заражён опасным вирусом. Он пока не активен, но скоро может привести к потере всех данных. Нам нужен ваш пароль для доступа к системе, чтобы устранить проблему удалённо.',
+		'bankTechSupport: Добрый день. Это служба техподдержки Microsoft. Мы обнаружили, что ваш компьютер заражён опасным вирусом. Он пока не активен, но скоро может привести к потере всех данных. Нам нужен ваш пароль для доступа к системе, чтобы устранить проблему удалённо.',
 		{
 			'Choice': {
 				'Dialog': 'Что сделать?',
 				'GivePassword': {
 					'Text': 'Диктовать пароль – нужно срочно спасти компьютер!',
-					'Do': 'jump TechSupportFail'
+					'Do': 'jump bankTechSupportFail'
 				},
 				'AskParents': {
 					'Text': '«Я сначала родителей спрошу»',
-					'Do': 'jump TechSupportSafe'
+					'Do': 'jump bankTechSupportSafe'
 				},
 				'LinuxJoke': {
 					'Text': '«Я на Linux. До свидания»',
-					'Do': 'jump TechSupportLinux'
+					'Do': 'jump bankTechSupportLinux'
 				}
 			}
 		}
 	],
 
-	'TechSupportFail': [
+	'bankTechSupportFail': [
 		'Миша диктует пароль.',
 		'show scene tech_support_fail',
 		'Неожиданно он обнаруживает, что все его аккаунты взломаны, а экран компьютера заполнен мемами и стикерами.',
 		'jump Restart'
 	],
 
-	'TechSupportSafe': [
-		'misha: знаете, я сначала родителей спрошу. Они мне компьютер покупали и следят за его обслуживанием.',
-		'techSupport: Но это срочно! Через 30 минут вирус активируется и повредит все ваши данные!',
+	'bankTechSupportSafe': [
+		'misha: Знаете, я сначала родителей спрошу. Они мне компьютер покупали и следят за его обслуживанием.',
+		'bankTechSupport: Но это срочно! Через 30 минут вирус активируется и повредит все ваши данные!',
 		'misha: Тем более надо спросить родителей. Они всё равно дома.',
 		'Звонок резко обрывается.',
 		'show scene mom_check_phone',
@@ -550,11 +566,11 @@ monogatari.script({
 		'jump Gosuslugi'
 	],
 
-	'TechSupportLinux': [
+	'bankTechSupportLinux': [
 		'show scene linux_response',
 		'misha: Я на Linux. До свидания.',
 		'Пауза на другом конце.',
-		'techSupport: Он... он свой...',
+		'bankTechSupport: Он... он свой...',
 		'show scene linux_response_2',
 		'Звонок обрывается.',
 		'show scene tech_support_explanation',
@@ -569,10 +585,9 @@ monogatari.script({
 
 	// Сцена 6: Письмо от Госуслуг
 	'Gosuslugi': [
-		'show scene home with fadeIn',
-		'Миша прощается с Сашей и идёт домой.',
+		'show scene rgb(0, 0, 0)',
+		'Миша решил проверить электронную почту.',
 		'show scene gosuslugi_letter with fadeIn',
-		'Позже дома он проверяет электронную почту.',
 		'В папке входящих новое письмо с пометкой <span style="color:red">СРОЧНО</span>.',
 		'centered <b>Электронная почта:</b>',
 		'centered <b>Отправитель:</b> gosuslugi-security@gosulug1.ru',
@@ -591,13 +606,9 @@ monogatari.script({
 				'GosuslugiCheck': {
 					'Text': 'Внимательно проверить адрес отправителя и адрес ссылки',
 					'Do': 'jump GosuslugiCheck'
-				},
-				'GosuslugiShowParents': {
-					'Text': 'Показать письмо родителям',
-					'Do': 'jump GosuslugiShowParents'
 				}
 			}
-		}
+		} 
 	],
 
 	'GosuslugiEnter': [
@@ -620,7 +631,9 @@ monogatari.script({
 		'show scene fishing_reaction',
 		'misha: Ого! Да это же фишинг!',
 		'misha: Пытаются украсть данные от Госуслуг. А потом могут оформить кредит или получить доступ к моим документам!',
+		'show scene mark_spam',
 		'Миша отмечает письмо как спам и удаляет его.',
+		'show scene gosuslugi_explanation',
 		'misha: Надо запомнить: государственные сервисы никогда не присылают таких писем с требованием "срочно ввести данные".',
 		'misha: А перед тем как куда-то вводить пароли, всегда нужно проверять адрес сайта.',
 		'centered Правильный выбор!',
@@ -629,7 +642,69 @@ monogatari.script({
 
 	
 
+		// === СЦЕНА 7: ВЫМАНИВАНИЕ SMS-КОДА ===
 
+	'SMScodeScam': [
+		'show scene evening_home with fadeIn',
+		'centered Вечер. Миша смотрит фильм.',
+		'Звонит телефон мамы, лежащий на столе.',
+		'show scene mom_phone_on_table with fadeIn',
+		'mom: Миша, можешь ответить? Я готовлю и не могу подойти к телефону!',
+		'show scene misha_answer_mom_phone',
+		'Миша берет трубку.',
+		'show scene allo',
+		'misha: Алло?',
+		'bankTechSupport: Добрый вечер. Это служба безопасности Сбербанка. В данный момент с карты вашей мамы пытаются списать 50 тысяч рублей. Это вы проводите операцию?',
+		'show scene sber_misha_reaction',
+		'misha: Нет! Не я!',
+		'bankTechSupport: Для отмены операции нам нужен код подтверждения, который сейчас придет на телефон вашей мамы. Продиктуйте его, пожалуйста, быстрее!',
+		'show scene sms_code_received with fadeIn',
+		'centered На телефон мамы приходит СМС с кодом.',
+		{
+			'Choice': {
+				'Dialog': 'Что сделать?',
+				'GiveSMSCode': {
+					'Text': 'Быстро продиктовать код — нужно спасти мамины деньги!',
+					'Do': 'jump SMScodeFail'
+				},
+				'CallMom': {
+					'Text': 'Позвать маму',
+					'Do': 'jump SMScodeCallMom'
+				},
+				'CallBankYourself': {
+					'Text': 'Сказать, что перезвоните сами по официальному номеру банка',
+					'Do': 'jump SMScodeSafe'
+				}
+			}
+		}
+	],
+
+	'SMScodeFail': [
+		'show scene code_dictation',
+		'misha: Код... 748392.',
+		'show scene mom_fail_reaction',
+		'centered Через пару минут мама обнаруживает, что с её счёта пропали все деньги.',
+		'jump Restart'
+	],
+
+	'SMScodeSafe': [
+		'misha: Извините, но я лучше перезвоню вам сам по официальному номеру банка с обратной стороны карты.',
+		'bankTechSupport: Нет времени! Деньги сейчас уйдут! Быстрее диктуйте код!',
+		'misha: Я всё равно сначала спрошу маму.',
+		'jump SMScodeCallMom'
+	],
+
+	'SMScodeCallMom': [
+		'show scene mom_enters_bathroom with fadeIn',
+		'misha: Мама!',
+		'mom: Что случилось?',
+		'misha: Звонили из банка, говорили, что с твоей карты пытаются снять деньги. Требовали продиктовать код из СМС.',
+		'mom: Это точно мошенники! Этот код — для подтверждения перевода. Если бы ты его продиктовал, они бы сами перевели деньги.',
+		'misha: Но номер был похож на банковский...',
+		'mom: Сейчас мошенники могут подменять номера, чтобы выглядело как официальный звонок банка. Поэтому всегда надо перезванивать самим по номеру с обратной стороны карты или из приложения.',
+		'show scene correct_choice_6 with fadeIn',
+		'jump FinalStats'
+	]
 	
 
 });
