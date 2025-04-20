@@ -165,9 +165,12 @@ monogatari.assets ('scenes', {
 	'rules_1': 'rules_1.png',
 	'rules_2': 'rules_2.png',
 	'rules_3': 'rules_3.png',
-	'qr': 'qr.png'
+	'qr': 'qr.png',
+	'morning_window': 'morning_window.png',
+	'walking_to_mom': 'walking_to_mom.png',
+	'evening_in_room': 'evening_in_room.png',
+	'achievements': 'achievements.png'
 	
-
 });
 
 
@@ -199,7 +202,7 @@ monogatari.characters({
 	},
 	mom: {
 		name: 'Мама',
-		color: '#fe805d'
+		color: '#92cbff'
 	},
 	security: {
 		name: 'Служба безопасности  банка',
@@ -214,9 +217,9 @@ monogatari.characters({
 
 monogatari.script({
 	'Start': [
-		'show scene rgb(0, 0, 0) with fadeIn duration 10s',
+		'show scene morning_window',
 		'centered Это обычное утро.',
-		'show scene morning_room with fadeIn duration 15s',
+		'show scene morning_room with fadeIn',
 		'centered Почти...',
 		'show scene alarm with fadeIn',
 		'play sound alarm',
@@ -228,7 +231,7 @@ monogatari.script({
 		'Он тянется к телефону, экран вспыхивает необычно ярким светом.',
 		'play sound notification',
 		'show scene phone_flash with fadeIn',
-		'На экране появляется сообщение: «Добро пожаловать в Цифровую Петлю. Пройди испытания. Ошибки будут перезапускать день.»',
+		'Появляется сообщение: «Добро пожаловать в Цифровую Петлю. Пройди испытания. Ошибки будут перезапускать день.»',
 		'show scene astonishment with fadeIn',
 		'misha: Это шутка? Или я опять не выключил вайфай на ночь и какая-то игра мне спам шлет?',
 		'show scene loop_realizing with fadeIn',
@@ -240,7 +243,7 @@ monogatari.script({
 		'misha: Пока, дружок!',
 		'play sound door',
 		'show scene rgb(0, 0, 0) with fadeIn',
-		'Казалось бы — обычный день... Но что-то подсказывало Мише, что сегодня все пойдет не так.',
+		'centered Казалось бы — обычный день... Но что-то подсказывало Мише, что сегодня все пойдет не по плану.',
 		'jump Park'
 	],
 	'Restart': [
@@ -304,7 +307,7 @@ monogatari.script({
 		'show scene notebook_turned_on',
 		'Миша осмотрелся и увидел поблизости скамейку. Он сел на неё и достал ноутбук.',
 		'show scene plugging_in',
-		'Он вставляет флешку.',
+		'Он вставил флешку.',
 		'show scene laptop_broken',
 		'play sound glitch',
 		'Вдруг экран начинает мерцать, словно новогодняя ёлка.',
@@ -362,7 +365,7 @@ monogatari.script({
 		'show scene game_message',
 		'«ПОЗДРАВЛЯЕМ! ТЫ ВЫИГРАЛ iPhone 27 Ultra Pro Max! Для получения приза введи свои данные. Осталось всего 3 приза!»',
 		'show scene prize_scam_explanation',
-		'misha: iPhone 27 Ultra Pro Max? Серьёзно? Да кому я нужен? iPhone 27 ещё даже не вышел!)',
+		'misha: iPhone 27 Ultra Pro Max? Серьёзно? Да кому я нужен? iPhone 27 ещё даже не вышел :)',
 		'show scene enter_data_form',
 		{
 			'Choice': {
@@ -433,14 +436,12 @@ monogatari.script({
 	'CheckProfilePhoto': [
 		'show scene search_photo',
 		'misha: Так-так, давай проверим, кто ты на самом деле...',
-		'На экране результаты поиска: то же фото найдено у 483 профилей в разных соцсетях.',
 		'misha: Ага! То же самое фото у 483 профилей. Да это даже не человек, а стоковое фото модели!',
 		'Он блокирует профиль и сообщает о нем как о мошенническом.',
 		'show scene prize_scam_explanation',
 		'misha: Такие фейковые аккаунты создают, чтобы выманить личные фото или данные.',
 		'misha: Потом их используют для шантажа или создания deepfake — это когда твое лицо вставляют в видео с неприятным содержанием.',
 		'show scene rgb(0, 0, 0) with fadeIn duration 10s',
-		'Очередной урок усвоен, что же будет дальше?',
 		'jump RemoteAccess'
 	],
 
@@ -531,7 +532,7 @@ monogatari.script({
 
 	'bankTechSupportCall': [
 		'show scene rgb(0, 0, 0)',
-		'centered Миша вернулся. Он домой и был в недоумении, никогда в течение одного дня у него не было столько странных ситуаций.',
+		'centered Миша вернулся домой. Он был озадачен, никогда в течение одного дня у него не было столько странных событий.',
 		'mom: Миша, ужин готов!',
 		'show scene mom_brought_food with fadeIn',
 		'Мама зашла в комнату к Мише и принесла ужин, который выглядел очень аппетитно.',
@@ -578,7 +579,6 @@ monogatari.script({
 		'show scene mom_check_phone',
 		'Миша показывает телефон маме.',
 		'mom: Сынок, это точно мошенники. Microsoft никогда не звонит таким образом. Это называется вишинг — телефонное мошенничество. Хорошо, что ты сначала спросил меня.',
-		'show scene mom_check_phone_2 with fadeIn',
 		'misha: Получается, настоящая поддержка всегда даёт время подумать и не торопит с решениями?',
 		'show scene mom_check_phone',
 		'mom: Именно! Срочность — главный признак мошенников. Они не хотят, чтобы ты успел обдумать ситуацию или посоветоваться.',
@@ -605,7 +605,7 @@ monogatari.script({
 	// Сцена 6: Письмо от Госуслуг
 	'Gosuslugi': [
 		'show scene rgb(0, 0, 0)',
-		'Миша решил проверить электронную почту.',
+		'centered Миша решил проверить электронную почту.',
 		'show scene gosuslugi_letter with fadeIn',
 		'В папке входящих новое письмо с пометкой <span style="color:red">СРОЧНО</span>.',
 		'centered <b>Электронная почта:</b>',
@@ -642,11 +642,11 @@ monogatari.script({
 
 	'GosuslugiCheck': [
 		'misha: Так, а что у нас с адресом?',
-		'misha: «gosuslugi-security@gosulug1.ru»... Стоп-стоп-стоп! Это же неправильно написано — «gosuslug1», а не «gosuslugi»!',
+		'misha: «gosuslugi-security@gosulug1.ru»... Стоп-стоп-стоп! Это же неправильно написано — «gosulug1», а не «gosuslugi»!',
 		'misha: И вообще, адрес Госуслуг должен заканчиваться на «gosuslugi.ru».',
 		'show scene gosuslugi_site',
 		'Он наводит курсор на кнопку в письме, не нажимая.',
-		'В нижнем углу экрана появляется настоящий адрес ссылки: http://fake-gosuslugi.site/steal_data.php',
+		'Рядом с кнопкой появился настоящий адрес ссылки: http://fake-gosuslugi.site/steal_data.php',
 		'show scene fishing_reaction',
 		'misha: Ого! Да это же фишинг!',
 		'misha: Пытаются украсть данные от Госуслуг. А потом могут оформить кредит или получить доступ к моим документам!',
@@ -673,10 +673,10 @@ monogatari.script({
 		'Миша берет трубку.',
 		'show scene misha_allo',
 		'misha: Алло?',
-		'security: Добрый вечер. Это служба безопасности Сбербанка. В данный момент с карты вашей мамы пытаются списать 50 тысяч рублей. Это вы проводите операцию?',
+		'security: Добрый вечер. Это служба безопасности Сбербанка. В данный момент с вашей карты пытаются списать 50 тысяч рублей. Это вы проводите операцию?',
 		'show scene sber_misha_reaction',
 		'misha: Нет! Не я!',
-		'security: Для отмены операции нам нужен код подтверждения, который сейчас придет на телефон вашей мамы. Продиктуйте его, пожалуйста, быстрее!',
+		'security: Для отмены операции нам нужен код подтверждения, который сейчас придет на ваш телефон. Продиктуйте его, пожалуйста, быстрее!',
 		'show scene sms_code_received with fadeIn',
 		'centered На телефон мамы приходит СМС с кодом.',
 		{
@@ -691,7 +691,7 @@ monogatari.script({
 					'Do': 'jump SMScodeCallMom'
 				},
 				'CallBankYourself': {
-					'Text': 'Сказать, что перезвоните сами по официальному номеру банка',
+					'Text': 'Сказать, что перезвонишь сами по официальному номеру банка',
 					'Do': 'jump SMScodeSafe'
 				}
 			}
@@ -711,6 +711,7 @@ monogatari.script({
 		'misha: Извините, но я лучше перезвоню вам сам по официальному номеру банка с обратной стороны карты.',
 		'security: Нет времени! Деньги сейчас уйдут! Быстрее диктуйте код!',
 		'misha: Я всё равно сначала спрошу маму.',
+		'show scene walking_to_mom',
 		'Миша идет к маме. Звонок резко обрывается.',
 		'jump SMScodeCallMom'
 	],
@@ -720,7 +721,7 @@ monogatari.script({
 		'misha: Мама!',
 		'mom: Что случилось?',
 		'misha: Звонили из банка, говорили, что с твоей карты пытаются снять деньги. Требовали продиктовать код из СМС.',
-		'mom: Это точно мошенники! Этот код — для входа в банк. Если бы ты его продиктовал, они бы сами перевели деньги.',
+		'mom: Это точно мошенники! Этот код — для входа в банк. Если бы ты его продиктовал, они бы украли все деньги.',
 		'misha: Но номер был похож на банковский...',
 		'mom: Сейчас мошенники могут подменять номера, чтобы выглядело как официальный звонок банка. Поэтому всегда надо перезванивать самим по номеру с обратной стороны карты или из приложения.',
 		'show scene correct_choice_6 with fadeIn',
@@ -734,16 +735,16 @@ monogatari.script({
 		'show scene rgb(0, 0, 0)',
 		'Наконец, он отправился спать.',
 		'show scene morning_window',
-		'Утро.',
+		'centered Утро.',
 		'show scene alarm with fadeIn',
 		'play sound alarm',
 		'Прозвенел будильник.',
 		'show scene waking_up with fadeIn',
-		'Миша почувствовал, что что-то изменилось.',
+		'Проснувшись, Миша почувствовал, что что-то изменилось.',
 		'show scene picking_phone with fadeIn',
 		'play sound notification',
 		'show scene phone_flash',
-		'Он берет телефон, экран и видит новое уведомление: «Поздравляем. Цикл завершён. Вы прошли все уровни цифровой осознанности.»',
+		'Он берет телефон и видит новое уведомление: «Поздравляем. Цикл завершён. Вы прошли все испытания.»',
 		'show scene achievements',
 		'play sound fanfare',
 		'Поздравляем!',
