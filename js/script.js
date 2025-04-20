@@ -740,6 +740,7 @@ monogatari.script({
 		'play sound alarm',
 		'Прозвенел будильник.',
 		'show scene waking_up with fadeIn',
+		'play sound alarm',
 		'Проснувшись, Миша почувствовал, что что-то изменилось.',
 		'show scene picking_phone with fadeIn',
 		'play sound notification',
@@ -757,7 +758,7 @@ monogatari.script({
 		'show scene rgb(0, 0, 0)',
 		'centered Спасибо за прохождение нашей новеллы!',
 		'show scene qr',
-		'Опрос',
+		'centered Опрос',
 		'end'	
 	]
 
