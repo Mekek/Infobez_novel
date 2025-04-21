@@ -297,7 +297,7 @@ monogatari.script({
 					'Do': 'jump GiveToTeacher'
 				},
 				'SkipFlashDrive': {
-					'Text': 'Пройти мимо.',
+					'Text': 'Пройти мимо',
 					'Do': 'jump SkipFlashDrive'
 				}
 			}
