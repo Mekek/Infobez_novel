@@ -231,7 +231,7 @@ monogatari.script({
 		'Он тянется к телефону, экран вспыхивает необычно ярким светом.',
 		'play sound notification',
 		'show scene phone_flash with fadeIn',
-		'Появляется сообщение: <span style="color:red">«Добро пожаловать в Цифровую Петлю. Пройди испытания. Ошибки будут перезапускать день.»</span>',
+		'Появляется сообщение: «Добро пожаловать в Цифровую Петлю. Пройди испытания. Ошибки будут перезапускать день.»',
 		'show scene astonishment with fadeIn',
 		'misha: Это шутка? Или я опять не выключил вайфай на ночь и какая-то игра мне спам шлет?',
 		'show scene loop_realizing with fadeIn',
@@ -692,7 +692,7 @@ monogatari.script({
 					'Do': 'jump SMScodeCallMom'
 				},
 				'CallBankYourself': {
-					'Text': 'Сказать, что перезвонишь сами по официальному номеру банка',
+					'Text': 'Сказать, что перезвонишь сам по официальному номеру банка',
 					'Do': 'jump SMScodeSafe'
 				}
 			}
@@ -758,8 +758,6 @@ monogatari.script({
 		'Давай повторим',
 		'show scene rgb(0, 0, 0)',
 		'centered Спасибо за прохождение нашей новеллы!',
-		'show scene qr',
-		'centered Опрос',
 		'end'	
 	]
 
